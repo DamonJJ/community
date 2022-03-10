@@ -11,11 +11,11 @@ export default async () => {
     const data = [
       // To try this example data with the UserExample model in schema.prisma,
       // uncomment the lines below and run 'yarn rw prisma migrate dev'
-      //
-      // { name: 'alice', email: 'alice@example.com' },
-      // { name: 'mark', email: 'mark@example.com' },
-      // { name: 'jackie', email: 'jackie@example.com' },
-      // { name: 'bob', email: 'bob@example.com' },
+
+      { title: 'alice', dietaryPreference: 'kosher' },
+      { title: 'mark', dietaryPreference: 'kosher' },
+      { title: 'jackie', dietaryPreference: 'kosher' },
+      { title: 'bob', dietaryPreference: 'kosher' },
     ]
     console.log(
       "\nUsing the default './scripts/seed.{js,ts}' template\nEdit the file to add seed data\n"
@@ -28,7 +28,7 @@ export default async () => {
       // Change to match your data model and seeding needs
       //
       data.map(async (data) => {
-        const record = await db.userExample.create({ data })
+        const record = await db.Event.create({ data })
         console.log(record)
       })
     )
