@@ -21,6 +21,7 @@ const Routes = () => {
         <Route path="/events" page={EventEventsPage} name="events" />
       </Set>
       <Set wrap={DashboardLayout}>
+        <Route path="/get-together/{id:Int}" page={GetTogetherPage} name="getTogether" />
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/" page={HomePage} name="home" />
       </Set>
