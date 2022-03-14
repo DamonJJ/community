@@ -1,9 +1,10 @@
-import { Link, routes } from '@redwoodjs/router'
+import GetTogether from 'src/components/GetTogether'
 
 export const QUERY = gql`
   query GetTogethersQuery {
     getTogethers: events {
       id
+      title
       dietaryPreference
       createdAt
     }
@@ -20,16 +21,6 @@ export const Failure = ({ error }) => (
 
 export const Success = ({ getTogethers }) => {
   return getTogethers.map((getTogether) => (
-    <article key={getTogether.id}>
-      <header>
-        <h2>
-          <Link to={routes.getTogether({ id: getTogether.id })}>
-            {getTogether.dietaryPreference}
-          </Link>
-        </h2>
-      </header>
-      <p>{getTogether.body}</p>
-      <div>Posted at: {getTogether.createdAt}</div>
-    </article>
+    <GetTogether key={getTogether.id} getTogether={getTogether} />
   ))
 }

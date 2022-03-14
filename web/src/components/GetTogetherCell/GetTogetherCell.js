@@ -1,7 +1,10 @@
+import GetTogether from 'src/components/GetTogether'
+
 export const QUERY = gql`
   query FindGetTogetherQuery($id: Int!) {
     getTogether: event(id: $id) {
       id
+      title
       dietaryPreference
       createdAt
     }
@@ -17,5 +20,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ getTogether }) => {
-  return <div>{JSON.stringify(getTogether)}</div>
+  return <GetTogether getTogether={getTogether} />
 }
