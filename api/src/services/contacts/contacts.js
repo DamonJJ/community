@@ -5,5 +5,7 @@ export const contacts = () => {
 }
 
 export const createContact = ({ input }) => {
-  return db.contact.create({ data: input })
+  return db.contact.create({
+    data: input,
+  })
 }
