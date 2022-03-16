@@ -1,7 +1,9 @@
+import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 
 const EventsLayout = ({ children }) => {
+  const { isAuthenticated, currentUser, logOut } = useAuth()
   return (
     <div className="rw-scaffold">
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
