@@ -1,5 +1,5 @@
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, RouteAnnouncement } from '@redwoodjs/router'
 
 const DashboardLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
@@ -9,9 +9,11 @@ const DashboardLayout = ({ children }) => {
     <>
       <header>
         <div className="flex-between">
-          <h1>
-            <Link to={routes.home()}>Redwood Blog</Link>
-          </h1>
+          <RouteAnnouncement>
+            <h1>
+              <Link to={routes.home()}>Redwood Blog</Link>
+            </h1>
+          </RouteAnnouncement>
           {isAuthenticated ? (
             <div>
               <span>Logged in as {currentUser.email}</span>{' '}
